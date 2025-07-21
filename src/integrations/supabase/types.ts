@@ -14,13 +14,59 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          created_at: string
+          current_tier: number
+          id: string
+          invited_by: string | null
+          ip_address: unknown | null
+          total_invites: number
+          updated_at: string
+          user_id: string
+          username: string
+        }
+        Insert: {
+          created_at?: string
+          current_tier?: number
+          id?: string
+          invited_by?: string | null
+          ip_address?: unknown | null
+          total_invites?: number
+          updated_at?: string
+          user_id: string
+          username: string
+        }
+        Update: {
+          created_at?: string
+          current_tier?: number
+          id?: string
+          invited_by?: string | null
+          ip_address?: unknown | null
+          total_invites?: number
+          updated_at?: string
+          user_id?: string
+          username?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "profiles_invited_by_fkey"
+            columns: ["invited_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      increment_invite_count: {
+        Args: { inviter_id: string }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
