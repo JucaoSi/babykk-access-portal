@@ -59,22 +59,24 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <SidebarProvider>
-            <div className="min-h-screen flex w-full bg-gradient-dark">
-              <AppSidebar />
-              <main className="flex-1 flex flex-col min-w-0">
-                <header className="h-12 flex items-center border-b border-border/50 bg-card/50 backdrop-blur px-4 relative z-10">
-                  <SidebarTrigger className="z-20" />
-                </header>
-                <div className="flex-1 overflow-auto">
-                  <Routes>
-                    <Route path="/" element={<Dashboard />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/preview" element={<FreePreview />} />
-                    <Route path="/tier/:tier" element={<TierContent />} />
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
-                </div>
-              </main>
+            <div className="min-h-screen w-full bg-gradient-dark">
+              <div className="flex min-h-screen relative">
+                <AppSidebar />
+                <main className="flex-1 flex flex-col">
+                  <header className="h-12 flex items-center border-b border-border/50 bg-card/50 backdrop-blur px-4 sticky top-0 z-50">
+                    <SidebarTrigger className="z-50" />
+                  </header>
+                  <div className="flex-1 overflow-auto p-4">
+                    <Routes>
+                      <Route path="/" element={<Dashboard />} />
+                      <Route path="/dashboard" element={<Dashboard />} />
+                      <Route path="/preview" element={<FreePreview />} />
+                      <Route path="/tier/:tier" element={<TierContent />} />
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </div>
+                </main>
+              </div>
             </div>
           </SidebarProvider>
         </BrowserRouter>
