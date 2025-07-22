@@ -30,26 +30,30 @@ const FreePreview = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="aspect-video bg-muted/30 rounded-lg border border-border/30 flex items-center justify-center">
-                <div className="text-center">
-                  <Play className="h-12 w-12 text-muted-foreground mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">Video Preview {index}</p>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Content will be added here
-                  </p>
-                </div>
+              <div className="aspect-video bg-muted/30 rounded-lg border border-border/30 overflow-hidden">
+                <video 
+                  controls 
+                  className="w-full h-full object-cover"
+                  preload="metadata"
+                >
+                  <source 
+                    src={`https://nmtpawlcmtfapqilkuva.supabase.co/storage/v1/object/public/videos/${index}.MOV`}
+                    type="video/quicktime"
+                  />
+                  Your browser does not support the video tag.
+                </video>
               </div>
               
               <div className="space-y-2">
-                <h4 className="font-medium text-sm">Sample Content {index}</h4>
+                <h4 className="font-medium text-sm">Preview Video {index}</h4>
                 <p className="text-xs text-muted-foreground">
-                  This is a placeholder for free preview content. Actual videos will be implemented here in the future.
+                  Free preview content - enjoy this sample from our collection.
                 </p>
               </div>
 
               <div className="flex items-center justify-between text-xs text-muted-foreground">
-                <span>Duration: --:--</span>
                 <span>Quality: HD</span>
+                <span>Free Access</span>
               </div>
             </CardContent>
           </Card>

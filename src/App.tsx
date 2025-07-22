@@ -61,17 +61,19 @@ const App = () => {
           <SidebarProvider>
             <div className="min-h-screen flex w-full bg-gradient-dark">
               <AppSidebar />
-              <main className="flex-1">
-                <header className="h-12 flex items-center border-b border-border/50 bg-card/50 backdrop-blur">
-                  <SidebarTrigger className="ml-4" />
+              <main className="flex-1 flex flex-col min-w-0">
+                <header className="h-12 flex items-center border-b border-border/50 bg-card/50 backdrop-blur px-4">
+                  <SidebarTrigger />
                 </header>
-                <Routes>
-                  <Route path="/" element={<Dashboard />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/preview" element={<FreePreview />} />
-                  <Route path="/tier/:tier" element={<TierContent />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
+                <div className="flex-1 overflow-auto">
+                  <Routes>
+                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/preview" element={<FreePreview />} />
+                    <Route path="/tier/:tier" element={<TierContent />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </div>
               </main>
             </div>
           </SidebarProvider>
