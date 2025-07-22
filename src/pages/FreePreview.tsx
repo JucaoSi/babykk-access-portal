@@ -35,12 +35,17 @@ const FreePreview = () => {
                   controls 
                   className="w-full h-full object-cover"
                   preload="metadata"
+                  controlsList="nodownload"
                 >
+                  <source 
+                    src={`https://nmtpawlcmtfapqilkuva.supabase.co/storage/v1/object/public/videos/${index}.MOV`}
+                    type="video/mp4"
+                  />
                   <source 
                     src={`https://nmtpawlcmtfapqilkuva.supabase.co/storage/v1/object/public/videos/${index}.MOV`}
                     type="video/quicktime"
                   />
-                  Your browser does not support the video tag.
+                  Seu navegador não suporta reprodução de vídeo.
                 </video>
               </div>
               
