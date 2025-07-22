@@ -62,8 +62,8 @@ const App = () => {
             <div className="min-h-screen flex w-full bg-gradient-dark">
               <AppSidebar />
               <main className="flex-1 flex flex-col min-w-0">
-                <header className="h-12 flex items-center border-b border-border/50 bg-card/50 backdrop-blur px-4">
-                  <SidebarTrigger />
+                <header className="h-12 flex items-center border-b border-border/50 bg-card/50 backdrop-blur px-4 relative z-10">
+                  <SidebarTrigger className="z-20" />
                 </header>
                 <div className="flex-1 overflow-auto">
                   <Routes>
